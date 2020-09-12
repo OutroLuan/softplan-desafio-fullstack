@@ -1,14 +1,18 @@
 package br.com.softplan.processos.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Processo implements Serializable {
 
     private static final long serialVersionUID = -5745243217363373302L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
@@ -17,7 +21,6 @@ public class Processo implements Serializable {
 
     private Date dataInclusao;
 
-    private List<Usuario> responsaveis;
 
     public Processo (){
 
@@ -55,14 +58,6 @@ public class Processo implements Serializable {
         this.dataInclusao = dataInclusao;
     }
 
-    public List<Usuario> getResponsaveis() {
-        return responsaveis;
-    }
-
-    public void setResponsaveis(List<Usuario> responsaveis) {
-        this.responsaveis = responsaveis;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -71,12 +66,11 @@ public class Processo implements Serializable {
         return id.equals(processo.id) &&
                 nome.equals(processo.nome) &&
                 Objects.equals(descricao, processo.descricao) &&
-                dataInclusao.equals(processo.dataInclusao) &&
-                Objects.equals(responsaveis, processo.responsaveis);
+                dataInclusao.equals(processo.dataInclusao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, descricao, dataInclusao, responsaveis);
+        return Objects.hash(id, nome, descricao, dataInclusao);
     }
 }

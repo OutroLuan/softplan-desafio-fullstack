@@ -1,7 +1,7 @@
 package br.com.softplan.processos.controllers;
 
-import br.com.softplan.processos.entities.Usuario;
-import br.com.softplan.processos.services.UsuarioService;
+import br.com.softplan.processos.entities.Parecer;
+import br.com.softplan.processos.services.ParecerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -9,35 +9,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuario")
-public class UsuarioController {
-
+@RequestMapping("/parecer")
+public class ParecerController {
     @Autowired
-    private UsuarioService service;
+    private ParecerService service;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Usuario> buscarTodos(){
+    public Iterable<Parecer> buscarTodos(){
         return service.buscarTodos();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Optional<Usuario> buscarPorId(@PathVariable("id") String id){
+    public Optional<Parecer> buscarPorId(@PathVariable("id") String id){
         return service.buscarPorId(id);
     }
 
     @RequestMapping(method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Usuario criar(@RequestBody Usuario usuario){
-        return service.criar(usuario);
+    public Parecer criar(@RequestBody Parecer parecer){
+        return service.criar(parecer);
     }
 
     @RequestMapping(method = RequestMethod.PUT,consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void editar(@RequestBody Usuario usuario) throws Exception {
-        service.editar(usuario);
+    public void editar(@RequestBody Parecer parecer) throws Exception {
+        service.editar(parecer);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deletar(@PathVariable("id") String id) throws Exception {
         service.deletar(id);
     }
-
 }

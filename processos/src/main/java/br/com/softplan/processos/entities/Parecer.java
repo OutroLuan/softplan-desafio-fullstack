@@ -1,21 +1,29 @@
 package br.com.softplan.processos.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 public class Parecer implements Serializable {
 
     private static final long serialVersionUID = -8456050936550409977L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     private String parecer;
 
     private Date dataInclusao;
 
+    @ManyToOne
+    @JoinColumn(name = "processo_id")
     private Processo processo;
 
     public Parecer(){
