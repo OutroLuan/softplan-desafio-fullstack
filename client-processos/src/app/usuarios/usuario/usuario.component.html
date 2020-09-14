@@ -1,6 +1,26 @@
-<p>
-  Tela de Usuarios!!
-</p>
-<br>
+<div >
+  <table class="table table-striped">
+    <thead></thead>
+    <tr>
+      <th>Código</th>
+      <th>Login</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Tipo Usuário</th>
+      <th>Data de Cadastro</th>
+      <th>Ações</th>
+    </tr>
 
-<button class="btn btn-primary" (click)="addUsuario()">Adicionar cliente</button>
+    <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.id}}</td>
+      <td>{{usuario.login}}</td>
+      <td>{{usuario.nome}}</td>
+      <td>{{usuario.email}}</td>
+      <td>{{usuario.tipoUsuario}}</td>
+      <td>{{usuario.dataInclusao}}</td>
+      <td><button class="btn btn-danger" (click)="deleteUsuario(usuario)"> Delete </button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

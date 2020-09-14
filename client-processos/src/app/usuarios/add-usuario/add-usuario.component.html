@@ -1,0 +1,35 @@
+<div class="col-md-auto col-sm-auto col-lg-auto">
+  <h2 class="text-center">Cadastro de usuários</h2>
+  <form>
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="name" [(ngModel)]="usuario.nome" placeholder="Nome" name="nome" class="form-control" id="nome">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input [(ngModel)]="usuario.email" placeholder="email" name="email" class="form-control" id="email">
+    </div>
+
+    <div class="form-group">
+      <label for="login">Login:</label>
+      <input [(ngModel)]="usuario.login" placeholder="login" name="login" class="form-control" id="login">
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha:</label>
+      <input type="password" [(ngModel)]="usuario.senha" placeholder="senha" name="senha" class="form-control" id="senha">
+    </div>
+
+    <div class="form-group">
+      <label for="tipoUsuario">Tipo de Usuário:</label>
+      <select [(ngModel)]="usuario.tipoUsuario" name="tipoUsuario" class="form-control" id="tipoUsuario">
+        <option>ADMINISTRADOR</option>
+        <option>TRIADOR</option>
+        <option>FINALIZADOR</option>
+      </select>
+    </div>
+
+    <button routerLink="/" class="btn btn-success" (click)="createUsuario()">Cadastrar</button>
+  </form>
+</div>
