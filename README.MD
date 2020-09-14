@@ -1,10 +1,12 @@
-back: processos
-projeto springboot 2.3.3, java 11
-Acessar projeto e rodar 'mvn clean install', em seguida rodar './mvnw spring-boot:run', ou levantar pela IDE se preferir. Aplicação rodando na porta 9000, contem serviços de listagem, criação, edição e remoção nas tabelas usuario, processo e parecer. As tabelas estão dentro do projeto spring, foi utilizado o framework H2 para a persistência.
+#Instruções para testar o projeto
 
-front: client-processos
-projeto angular 7
-Acessar projeto e rodar 'npm install', em seguida rodar 'ng serve', ou levantar pela IDE se preferir. Aplicação rodando na porta 4200. Utilizar usuário e senha 'admin', para fazer um acesso como usuario administrador, depois desse login pode cadastrar os usuários dos demais papeis e testar os acessos deles. O projeto do client está incompleto. Tendo como funcional a listagem de usuários, cadastro de usuário e remoção de usuário, listagem de processos e cadastro de processos. Faltando concluir a edição de usuário, edição de processos, atribuir processo à usuarios, e a inserção do parecer no processo.
+- back: processos
+- projeto springboot 2.3.3, java 11
+- Acessar projeto e rodar 'mvn clean install', em seguida rodar './mvnw spring-boot:run', ou levantar pela IDE se preferir. Aplicação rodando na porta 9000, contem serviços de listagem, criação, edição e remoção nas tabelas usuario, processo e parecer. As tabelas estão dentro do projeto spring, foi utilizado o framework H2 para a persistência.
+
+- front: client-processos
+- projeto angular 7
+- Acessar projeto e rodar 'npm install', em seguida rodar 'ng serve', ou levantar pela IDE se preferir. Aplicação rodando na porta 4200. Utilizar usuário e senha 'admin', para fazer um acesso como usuario administrador, depois desse login pode cadastrar os usuários dos demais papeis e testar os acessos deles. O projeto do client está incompleto. Tendo como funcional a listagem de usuários, cadastro de usuário e remoção de usuário, listagem de processos e cadastro de processos. Faltando concluir a edição de usuário, edição de processos, atribuir processo à usuarios, e a inserção do parecer no processo.
 
 
 ----------------------------------------------------------------------------------------------------------------------------
