@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClientService, Usuario} from '../../service/http-client.service';
+import {HttpClientService, Usuario} from '../../../service/http-client.service';
 
 @Component({
   selector: 'app-usuario',

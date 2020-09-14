@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { UsuarioComponent } from './usuarios/usuario/usuario.component';
+import { UsuarioComponent } from './components/usuarios/usuario/usuario.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AddUsuarioComponent } from './usuarios/add-usuario/add-usuario.component';
-import { HeaderComponent } from './pagina/header/header.component';
-import { FooterComponent } from './pagina/footer/footer.component';
+import { AddUsuarioComponent } from './components/usuarios/add-usuario/add-usuario.component';
+import { HeaderComponent } from './components/pagina/header/header.component';
+import { FooterComponent } from './components/pagina/footer/footer.component';
+import { ProcessoComponent } from './components/processos/processo/processo.component';
+import { AddProcessoComponent } from './components/processos/add-processo/add-processo.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FooterComponent } from './pagina/footer/footer.component';
     UsuarioComponent,
     AddUsuarioComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProcessoComponent,
+    AddProcessoComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,10 @@
       <td>{{usuario.email}}</td>
       <td>{{usuario.tipoUsuario}}</td>
       <td>{{usuario.dataInclusao}}</td>
-      <td><button class="btn btn-danger" (click)="deleteUsuario(usuario)"> Delete </button></td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteUsuario(usuario)"> Delete </button>
+        <button class="btn btn-primary">Editar </button>
+      </td>
     </tr>
     </tbody>
   </table>
