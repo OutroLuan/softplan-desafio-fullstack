@@ -14,6 +14,14 @@ export class HttpClientService {
     return this.httpClient.get<Usuario[]>(environment.url_processos + '/usuario');
   }
 
+  public getUsuarioLogin(login: string, senha: string) {
+    return this.httpClient.get<string>(environment.url_processos + '/usuario/valida/login/' + login + '/senha/' + senha).toPromise();
+  }
+
+  public getUsuarioById(id: string) {
+    return this.httpClient.get<Usuario>(environment.url_processos + 'usuario' + '/' + id).toPromise();
+  }
+
   public createUsuarios(usuario) {
     return this.httpClient.post<Usuario>(environment.url_processos + '/usuario', usuario);
   }

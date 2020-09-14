@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClientService, Usuario} from '../../../service/http-client.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-usuario',
@@ -10,14 +11,14 @@ export class AddUsuarioComponent implements OnInit {
 
   usuario: Usuario = new Usuario(null, '', '', '', '', '', '');
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private httpClientService: HttpClientService, private router: Router) { }
 
   ngOnInit() {
   }
 
   createUsuario(): void {
     this.httpClientService.createUsuarios(this.usuario).subscribe( data => {
-      // alert('Usuário cadastrado com sucesso!');
+      this.router.navigate(['']);
     });
   }
 }

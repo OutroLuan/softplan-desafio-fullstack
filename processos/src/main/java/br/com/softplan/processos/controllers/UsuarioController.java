@@ -1,6 +1,7 @@
 package br.com.softplan.processos.controllers;
 
 import br.com.softplan.processos.entities.Usuario;
+import br.com.softplan.processos.entities.enuns.TipoUsuarioEnum;
 import br.com.softplan.processos.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,6 +16,12 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService service;
+
+    @RequestMapping(value = "/valida/login/{login}/senha/{senha}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public TipoUsuarioEnum buscarTipoUsuario(@PathVariable("login") String login, @PathVariable("senha") String senha){
+        Optional<Usuario> usuario = service.buscarPorLoginESenha(login,senha);
+        return usuario.get().getTipoUsuario();
+    }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<Usuario> buscarTodos(){

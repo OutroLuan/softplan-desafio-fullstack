@@ -17,3 +17,19 @@
 .btn {
   margin-right: 5px;
 }
+
+
+.login {
+  min-width: 500px;
+  position: absolute;
+  text-align: left;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem
+}
+@media (max-width: 500px) {
+  .login {
+    min-width: 90%;
+  }
+}

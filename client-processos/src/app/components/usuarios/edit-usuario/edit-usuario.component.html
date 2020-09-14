@@ -1,6 +1,11 @@
 <div class="col-md-auto col-sm-auto col-lg-auto">
-  <h2 class="text-center">Cadastro de usuários</h2>
+  <h2 class="text-center">Cadastro de usuário</h2>
   <form>
+    <div class="form-group">
+      <label for="codigo">Código:</label>
+      <input [(ngModel)]="usuario.id" placeholder="Código" name="codigo" class="form-control" id="codigo" disabled>
+    </div>
+
     <div class="form-group">
       <label for="nome">Nome:</label>
       <input type="name" [(ngModel)]="usuario.nome" placeholder="Nome" name="nome" class="form-control" id="nome">
@@ -30,6 +35,6 @@
       </select>
     </div>
 
-    <button class="btn btn-success" (click)="createUsuario()">Cadastrar</button>
+    <button class="btn btn-success" (click)="updateUsuario()">Salvar</button>
   </form>
 </div>

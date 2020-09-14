@@ -12,6 +12,9 @@ import { HeaderComponent } from './components/pagina/header/header.component';
 import { FooterComponent } from './components/pagina/footer/footer.component';
 import { ProcessoComponent } from './components/processos/processo/processo.component';
 import { AddProcessoComponent } from './components/processos/add-processo/add-processo.component';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { EditUsuarioComponent } from './components/usuarios/edit-usuario/edit-usuario.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { AddProcessoComponent } from './components/processos/add-processo/add-pr
     HeaderComponent,
     FooterComponent,
     ProcessoComponent,
-    AddProcessoComponent
+    AddProcessoComponent,
+    LoginComponent,
+    LogoutComponent,
+    EditUsuarioComponent
   ],
   imports: [
     BrowserModule,

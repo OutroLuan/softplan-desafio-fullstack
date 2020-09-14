@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClientService, Processo} from '../../../service/http-client.service';
+import {AuthenticationService} from '../../../service/authentication.service';
 
 @Component({
   selector: 'app-processo',
@@ -10,7 +11,7 @@ export class ProcessoComponent implements OnInit {
 
   processos: Processo[];
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private httpClientService: HttpClientService, private loginService: AuthenticationService) { }
 
   ngOnInit() {
     this.httpClientService.getProcessos().subscribe(

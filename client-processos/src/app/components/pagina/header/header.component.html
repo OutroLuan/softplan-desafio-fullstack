@@ -2,12 +2,16 @@
   <nav class ="navbar navbar-expand-md navbar-dark bg-dark col-md-auto col-lg-auto col-sm-auto">
     <div class="navbar-brand">Processos</div>
 
-    <ul class="navbar-nav">
-      <li><a  routerLink="/" class="nav-link">Usuários</a></li>
-      <li><a  routerLink="/addUsuario" class="nav-link">Adicionar usuário</a></li>
-      <li><a  routerLink="/processos" class="nav-link">Processos</a></li>
-      <li><a  routerLink="/addProcessos" class="nav-link">Criar processo</a></li>
+    <ul class="navbar-nav" *ngIf="loginService.isUserLoggedIn()">
+      <li *ngIf="loginService.role() === 'ADMINISTRADOR'"><a  routerLink="/" class="nav-link">Usuários</a></li>
+      <li *ngIf="loginService.role() === 'ADMINISTRADOR'"><a  routerLink="/addUsuario" class="nav-link">Adicionar usuário</a></li>
+      <li *ngIf="loginService.role() === 'TRIADOR' || loginService.role() === 'FINALIZADOR'"><a  routerLink="/processos" class="nav-link">Processos</a></li>
+      <li *ngIf="loginService.role() === 'TRIADOR'"><a  routerLink="/addProcessos" class="nav-link">Criar processo</a></li>
+      <li><a  routerLink="/logout" class="nav-link" (click)="limparRole()">Sair</a></li>
+    </ul>
 
+    <ul class="navbar-nav" *ngIf="!loginService.isUserLoggedIn()">
+      <li><a  routerLink="/login" class="nav-link">Login</a></li>
     </ul>
 
   </nav>

@@ -41,4 +41,8 @@ public class UsuarioService {
     public Iterable<Usuario> buscarTodos(){
         return repository.findAll();
     }
+
+    public Optional<Usuario> buscarPorLoginESenha(String login, String senha) {
+        return repository.findByLoginAndSenha(login, senha);
+    }
 }

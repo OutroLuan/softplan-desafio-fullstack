@@ -17,7 +17,7 @@
       <td>{{processo.dataInclusao}}</td>
       <td>
         <button class="btn btn-primary">Atribuir responsável</button>
-        <button class="btn btn-success">Adicionar parecer</button>
+        <button *ngIf="loginService.role() === 'FINALIZADOR'" class="btn btn-success">Adicionar parecer</button>
       </td>
     </tr>
     </tbody>
