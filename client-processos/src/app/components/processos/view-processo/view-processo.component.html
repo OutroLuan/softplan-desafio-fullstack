@@ -1,0 +1,47 @@
+<div class="col-md-auto col-sm-auto col-lg-auto">
+  <h2 class="text-center">Visualizar Processo</h2>
+  <form>
+
+    <div class="form-group">
+      <label for="id">Código:</label>
+      <input [(ngModel)]="processo.id" placeholder="id" name="id" class="form-control" id="id" disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input [(ngModel)]="processo.nome" placeholder="Nome" name="nome" class="form-control" id="nome" disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="descricao">Descrição:</label>
+      <textarea [(ngModel)]="processo.descricao" placeholder="descricao" name="descricao" class="form-control" id="descricao" disabled></textarea>
+    </div>
+
+    <h2 class="text-center">Parecer</h2>
+
+    <div >
+      <table class="table table-striped">
+        <thead></thead>
+        <tr>
+          <th>Código</th>
+          <th>Parecer</th>
+          <th>Usuário</th>
+          <th>Processo</th>
+          <th>Data de inclusão</th>
+        </tr>
+
+        <tbody>
+        <tr *ngFor="let parecer of pareceres">
+          <td>{{parecer.id}}</td>
+          <td>{{parecer.parecer}}</td>
+          <td>{{parecer.usuario.nome}}</td>
+          <td>{{parecer.processo.nome}}</td>
+          <td>{{formatarData(parecer.dataInclusao)}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </form>
+</div>

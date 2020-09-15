@@ -16,6 +16,8 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { EditUsuarioComponent } from './components/usuarios/edit-usuario/edit-usuario.component';
 import { AddUsuarioProcessoComponent } from './components/processos/add-usuario-processo/add-usuario-processo.component';
+import { AddParecerComponent } from './components/processos/add-parecer/add-parecer.component';
+import { ViewProcessoComponent } from './components/processos/view-processo/view-processo.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AddUsuarioProcessoComponent } from './components/processos/add-usuario-
     LoginComponent,
     LogoutComponent,
     EditUsuarioComponent,
-    AddUsuarioProcessoComponent
+    AddUsuarioProcessoComponent,
+    AddParecerComponent,
+    ViewProcessoComponent
   ],
   imports: [
     BrowserModule,

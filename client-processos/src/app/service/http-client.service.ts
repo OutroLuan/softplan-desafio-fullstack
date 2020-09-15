@@ -73,6 +73,10 @@ export class HttpClientService {
     return this.httpClient.post<Parecer>(environment.url_processos + '/parecer', parecer);
   }
 
+  public getParecerByProcessoId(id: string) {
+    return this.httpClient.get<Parecer[]>(environment.url_processos + '/parecer/processo/' + id.toString());
+  }
+
   public deleteParecer(parecer) {
     return this.httpClient.delete<Parecer>(environment.url_processos + '/parecer' + '/' + parecer.id.toString());
   }

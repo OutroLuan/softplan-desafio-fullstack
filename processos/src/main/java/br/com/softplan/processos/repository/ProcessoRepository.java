@@ -7,5 +7,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface ProcessoRepository extends CrudRepository<Processo,Long>{
     @Query(value="select p.* from processo p join usuario_processo up on (p.id = up.processo_id) where up.usuario_id = :usuarioId", nativeQuery = true)
-    public Iterable<Processo> findProcessosJoinUsuarioProcessosByUsuarioId(@Param("usuarioId") Integer usuarioId);
+    Iterable<Processo> findProcessosJoinUsuarioProcessosByUsuarioId(@Param("usuarioId") Integer usuarioId);
 }

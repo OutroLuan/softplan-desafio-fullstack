@@ -1,6 +1,7 @@
 package br.com.softplan.processos.services;
 
 import br.com.softplan.processos.entities.Parecer;
+import br.com.softplan.processos.entities.Processo;
 import br.com.softplan.processos.repository.ParecerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,9 @@ public class ParecerService {
 
     public Iterable<Parecer> buscarTodos(){
         return repository.findAll();
+    }
+
+    public Iterable<Parecer> buscarPorProcesso(Integer id) {
+        return repository.findByProcessoId(id);
     }
 }

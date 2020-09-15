@@ -34,6 +34,18 @@ export class ProcessoComponent implements OnInit {
     this.router.navigate(['processos/' + id.toString() + '/addUsuarioProcesso']);
   }
 
+  irParaAdicionarParecer(id): void {
+    window.localStorage.removeItem('editProcessoId');
+    window.localStorage.setItem('editProcessoId', id.toString());
+    this.router.navigate(['processos/' + id.toString() + '/addParecer']);
+  }
+
+  irParaVisualizar(id): void {
+    window.localStorage.removeItem('editProcessoId');
+    window.localStorage.setItem('editProcessoId', id.toString());
+    this.router.navigate(['processos/' + id.toString() + '/visualizar']);
+  }
+
   formatarData(data: string) {
     const date = new Date(data);
     return date.toLocaleDateString();

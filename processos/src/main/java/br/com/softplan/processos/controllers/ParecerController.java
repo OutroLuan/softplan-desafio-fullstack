@@ -25,6 +25,11 @@ public class ParecerController {
         return service.buscarPorId(id);
     }
 
+    @RequestMapping(value = "/processo/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Parecer> buscarPorProcesso(@PathVariable("id") String id){
+        return service.buscarPorProcesso(Integer.parseInt(id));
+    }
+
     @RequestMapping(method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Parecer criar(@RequestBody Parecer parecer){
         return service.criar(parecer);
