@@ -22,6 +22,10 @@ public class ProcessoService {
         return repository.findById(Long.parseLong(id));
     }
 
+    public Iterable<Processo> buscarProcessoPorResponsavel(String id) {
+        return repository.findProcessosJoinUsuarioProcessosByUsuarioId(Integer.parseInt(id));
+    }
+
     public Processo criar(Processo processo){
         processo.setDataInclusao(new Date());
         return repository.save(processo);

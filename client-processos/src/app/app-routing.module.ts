@@ -9,6 +9,7 @@ import {LoginComponent} from './components/login/login.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import {AuthGuardService} from './service/auth-guard.service';
 import {EditUsuarioComponent} from './components/usuarios/edit-usuario/edit-usuario.component';
+import {AddUsuarioProcessoComponent} from './components/processos/add-usuario-processo/add-usuario-processo.component';
 
 const routes: Routes = [
   { path: '', component: UsuarioComponent, canActivate: [AuthGuardService]},
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'addProcessos', component: AddProcessoComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService] },
-  { path: 'usuario/:id', component: EditUsuarioComponent, canActivate: [AuthGuardService] }
+  { path: 'usuario/:id', component: EditUsuarioComponent, canActivate: [AuthGuardService] },
+  { path: 'processos/:id/addUsuarioProcesso', component: AddUsuarioProcessoComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

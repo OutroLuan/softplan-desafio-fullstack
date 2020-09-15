@@ -14,9 +14,9 @@
       <td>{{processo.id}}</td>
       <td>{{processo.nome}}</td>
       <td>{{processo.descricao}}</td>
-      <td>{{processo.dataInclusao}}</td>
+      <td>{{formatarData(processo.dataInclusao)}}</td>
       <td>
-        <button class="btn btn-primary">Atribuir responsável</button>
+        <button *ngIf="loginService.role() === 'TRIADOR'" class="btn btn-primary" (click)="irParaAtribuirResponsavel(processo.id)">Atribuir responsável</button>
         <button *ngIf="loginService.role() === 'FINALIZADOR'" class="btn btn-success">Adicionar parecer</button>
       </td>
     </tr>

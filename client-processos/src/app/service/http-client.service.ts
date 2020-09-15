@@ -15,11 +15,15 @@ export class HttpClientService {
   }
 
   public getUsuarioLogin(login: string, senha: string) {
-    return this.httpClient.get<string>(environment.url_processos + '/usuario/valida/login/' + login + '/senha/' + senha).toPromise();
+    return this.httpClient.get<Usuario>(environment.url_processos + '/usuario/valida/login/' + login + '/senha/' + senha).toPromise();
   }
 
   public getUsuarioById(id: string) {
-    return this.httpClient.get<Usuario>(environment.url_processos + 'usuario' + '/' + id).toPromise();
+    return this.httpClient.get<Usuario>(environment.url_processos + '/usuario' + '/' + id);
+  }
+
+  public getUsuariosByTipoUsuario(tipoUsuario: string) {
+    return this.httpClient.get<Usuario[]>(environment.url_processos + '/usuario/tipo' + '/' + tipoUsuario);
   }
 
   public createUsuarios(usuario) {
@@ -37,6 +41,14 @@ export class HttpClientService {
   // Operações de Processos
   public getProcessos() {
     return this.httpClient.get<Processo[]>(environment.url_processos + '/processo');
+  }
+
+  public getProcessoById(id: string) {
+    return this.httpClient.get<Processo>(environment.url_processos + '/processo' + '/' + id);
+  }
+
+  public getProcessosByUsuarioId(id: string) {
+    return this.httpClient.get<Processo[]>(environment.url_processos + '/processo/responsavel' + '/' + id);
   }
 
   public createProcesso(processo) {
@@ -68,6 +80,25 @@ export class HttpClientService {
   public updateParecer(parecer) {
     return this.httpClient.put<Parecer>(environment.url_processos + '/parecer', parecer);
   }
+
+  // Operações de usuarioProcesso(Responsável)
+
+  public getUsuarioProcesso() {
+    return this.httpClient.get<UsuarioProcesso[]>(environment.url_processos + '/usuarioProcesso');
+  }
+
+  public createUsuarioProcesso(usuarioProcesso) {
+    return this.httpClient.post<UsuarioProcesso>(environment.url_processos + '/usuarioProcesso', usuarioProcesso);
+  }
+
+  public deleteUsuarioProcesso(usuarioProcesso) {
+    return this.httpClient.delete<UsuarioProcesso>(environment.url_processos + '/usuarioProcesso' + '/' + usuarioProcesso.id.toString());
+  }
+
+  public updateUsuarioProcesso(usuarioProcesso) {
+    return this.httpClient.put<UsuarioProcesso>(environment.url_processos + '/usuarioProcesso', usuarioProcesso);
+  }
+
 }
 
 
@@ -92,6 +123,15 @@ export class Processo {
   ) {}
 }
 
+export class UsuarioProcesso {
+  constructor(
+    public id: number,
+    public responsavel: Usuario,
+    public processo: Processo,
+    public dataInclusao: string
+  ) {}
+}
+
 export class Parecer {
   constructor(
     public id: number,
@@ -100,4 +140,5 @@ export class Parecer {
     public processo: Processo,
     public dataInclusao: string
   ) {}
+
 }

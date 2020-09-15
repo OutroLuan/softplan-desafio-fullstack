@@ -7,18 +7,19 @@ import {Observable} from 'rxjs';
 })
 export class AuthenticationService {
 
-  tipoUsuario: string;
+  usuario: Usuario;
 
   constructor(private httpClient: HttpClientService) { }
 
    async authenticate(username, password) {
     await this.httpClient.getUsuarioLogin(username, password).then(
-      response => { this.tipoUsuario = response; }
+      response => { this.usuario = response; }
     );
-    if (this.tipoUsuario) {
+    if (this.usuario) {
       sessionStorage.setItem('username', username);
-      sessionStorage.setItem('tipoUsuario', this.tipoUsuario);
-      return this.tipoUsuario;
+      sessionStorage.setItem('tipoUsuario', this.usuario.tipoUsuario);
+      sessionStorage.setItem('usuarioId', this.usuario.id.toString());
+      return this.usuario.tipoUsuario;
     } else {
       return false;
     }
@@ -33,10 +34,16 @@ export class AuthenticationService {
   logOut() {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('tipoUsuario');
+    sessionStorage.removeItem('usuarioId');
   }
 
   role() {
     const tipoUsuario = sessionStorage.getItem('tipoUsuario');
     return tipoUsuario;
+  }
+
+  getUsuarioId() {
+    const id = sessionStorage.getItem('usuarioId');
+    return id;
   }
 }

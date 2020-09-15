@@ -1,6 +1,7 @@
 package br.com.softplan.processos.services;
 
 import br.com.softplan.processos.entities.Usuario;
+import br.com.softplan.processos.entities.enuns.TipoUsuarioEnum;
 import br.com.softplan.processos.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,9 @@ public class UsuarioService {
 
     public Optional<Usuario> buscarPorLoginESenha(String login, String senha) {
         return repository.findByLoginAndSenha(login, senha);
+    }
+
+    public Iterable<Usuario> buscarTodosPorTipoUsuario(TipoUsuarioEnum tipoUsuario) {
+        return repository.findAllByTipoUsuario(tipoUsuario);
     }
 }

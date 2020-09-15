@@ -26,7 +26,14 @@ export class UsuarioComponent implements OnInit {
   }
 
   irParaEditar(id): void {
+    window.localStorage.removeItem('editUsuarioId');
+    window.localStorage.setItem('editUsuarioId', id.toString());
     this.router.navigate(['usuario', id.toString()]);
+  }
+
+  formatarData(data: string) {
+    const date = new Date(data);
+    return date.toLocaleDateString();
   }
 
 }

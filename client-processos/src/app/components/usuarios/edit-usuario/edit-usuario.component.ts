@@ -9,13 +9,13 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class EditUsuarioComponent implements OnInit {
 
-  constructor(private httpClientService: HttpClientService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private httpClientService: HttpClientService, private router: Router) { }
 
   usuario: Usuario;
 
-  async ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    await this.httpClientService.getUsuarioById(id).then(response => {
+  ngOnInit() {
+    const id = window.localStorage.getItem('editUsuarioId');
+    this.httpClientService.getUsuarioById(id).subscribe(response => {
       this.usuario = response;
     });
   }

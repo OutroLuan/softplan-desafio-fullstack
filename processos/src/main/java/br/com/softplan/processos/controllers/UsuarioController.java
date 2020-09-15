@@ -18,9 +18,14 @@ public class UsuarioController {
     private UsuarioService service;
 
     @RequestMapping(value = "/valida/login/{login}/senha/{senha}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public TipoUsuarioEnum buscarTipoUsuario(@PathVariable("login") String login, @PathVariable("senha") String senha){
+    public Optional<Usuario> buscarTipoUsuario(@PathVariable("login") String login, @PathVariable("senha") String senha){
         Optional<Usuario> usuario = service.buscarPorLoginESenha(login,senha);
-        return usuario.get().getTipoUsuario();
+        return usuario;
+    }
+
+    @RequestMapping(value = "tipo/{tipoUsuario}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Usuario> buscarTodosPorTipoUsuario(@PathVariable("tipoUsuario") TipoUsuarioEnum tipoUsuario){
+        return service.buscarTodosPorTipoUsuario(tipoUsuario);
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

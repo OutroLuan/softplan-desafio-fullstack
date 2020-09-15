@@ -26,6 +26,11 @@ public class ProcessoController {
         return service.buscarPorId(id);
     }
 
+    @RequestMapping(value = "/responsavel/{usuarioId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Processo> buscarPorResponsavel(@PathVariable("usuarioId") String usuarioId){
+        return service.buscarProcessoPorResponsavel(usuarioId);
+    }
+
     @RequestMapping(method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Processo criar(@RequestBody Processo processo){
         return service.criar(processo);
