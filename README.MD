@@ -6,7 +6,7 @@
 
 - front: client-processos
 - projeto angular 7
-- Acessar projeto e rodar 'npm install', em seguida rodar 'ng serve', ou levantar pela IDE se preferir. Aplicação rodando na porta 4200. Utilizar usuário e senha 'admin', para fazer um acesso como usuario administrador, depois desse login pode cadastrar os usuários dos demais papeis e testar os acessos deles. O projeto do client está incompleto. Tendo como funcional a listagem de usuários, cadastro de usuário e remoção de usuário, listagem de processos e cadastro de processos. Faltando concluir a edição de usuário, edição de processos, atribuir processo à usuarios, e a inserção do parecer no processo.
+- Acessar projeto e rodar 'npm install', em seguida rodar 'ng serve', ou levantar pela IDE se preferir. Aplicação rodando na porta 4200. Utilizar usuário e senha 'admin', para fazer um acesso como usuario administrador, depois desse login pode cadastrar os usuários dos demais papeis e testar os acessos deles. O sistema segue os requisitos de forma simples, o usuario Administrador vai enxergar uma listagem de usuários e vai executar as operações CRUD. O usuario Triador vai enxergar uma listagem de processos, atribuir responsáveis e cadastrar e visualizar processos(com os pareceres). O usuário Finalizador vai enxergar uma lista de processos(Apenas os que ele é responsável) e vai poder criar um parecer e visualizar os processos(com parecer).
 
 
 ----------------------------------------------------------------------------------------------------------------------------
